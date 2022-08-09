@@ -81,6 +81,10 @@ body {
     border: 1px solid #545454 !important;
 }
 
+.background-grey {
+    background-color: #d9d9d9;
+}
+
 .curve {
     border-radius: 20px;
 }
@@ -141,5 +145,9 @@ body {
 
     body {
         height: calc(100vh - 116px);
+    }
+
+    #add-to-bag {
+        width: 90%;
     }
 }
