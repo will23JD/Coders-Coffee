@@ -85,6 +85,18 @@ body {
     border-radius: 20px;
 }
 
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 20px;
+    right: 40px;
+}
+
+.btt-link {
+    cursor: pointer;
+}
+
 /* -------------------------------- Overlay */
 
 .overlay {
