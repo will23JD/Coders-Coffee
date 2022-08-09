@@ -58,6 +58,13 @@ body {
     color: #fff;
 }
 
+.btn-white:hover,
+.btn-white:active,
+.btn-white:focus {
+    background: #222;
+    color: #fff !important;
+}
+
 .text-white {
     color: #fff !important;
 }
