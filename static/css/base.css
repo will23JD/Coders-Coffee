@@ -97,7 +97,9 @@ body {
     right: 40px;
 }
 
-.btt-link {
+.btt-link,
+.update-link,
+.remove-item {
     cursor: pointer;
 }
 

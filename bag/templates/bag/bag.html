@@ -42,7 +42,26 @@
                             <p class="my-0">${{ item.finalprice }}</p>
                         </td>
                         <td class="py-3 w-25">
-                            <p class="my-0">{{ item.quantity }}</p>
+                            <form class="form update-form" method="POST" action="">
+                                {% csrf_token %}
+                                <select id="q-select" class="form-control form-control-sm" name="quantity" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                                {% if item.product.has_sizes %}
+                                    <input type="hidden" name="product_size" value="{{ item.size }}">
+                                {% endif %}
+                            </form>
+                            <a class="update-link text-info"><small>Update</small></a>
+                            <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-size="{{ item.size }}"><small>Remove</small></a>
                         </td>
                         <td class="py-3">
                             <p class="my-0">${{ item.product.price }}</p>
@@ -98,4 +117,28 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block postloadjs %}
+    <script type="text/javascript">
+    // Update quantity on click
+    $('.update-link').click(function(e) {
+        var form = $(this).prev('.update-form');
+        form.submit();
+    })
+
+    // Remove item and reload on click
+    $('.remove-item').click(function(e) {
+        var csrfToken = "{{ csrf_token }}";
+        var itemId = $(this).attr('id').split('remove_')[1];
+        var size = $(this).data('size');
+        var url = `/bag/remove/${itemId}`;
+        var data = {'csrfmiddlewaretoken': csrfToken, 'size': size};
+
+        $.post(url, data)
+         .done(function() {
+             location.reload();
+         });
+    })
+    </script>
 {% endblock %}
