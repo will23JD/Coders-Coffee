@@ -41,11 +41,23 @@
                             Spend <strong>${{ free_delivery_delta }}</strong> more to get free next day delivery!
                         </p>
                     {% endif %}
-                    <a href="{% url 'view_bag' %}" class=" mt-1 btn btn-success btn-block curve">
-                        <span class="text-uppercase">Go To Secure Checkout</span>
-                        <span class="icon">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 p-2">
+                    <a href="{% url 'view_bag' %}" class="col mt-1 btn btn-black curve">
+                        <span class="text-uppercase">View Bag</span>
+                        <!-- <span class="icon">
+                            <i class="fas fa-shopping-bag"></i>
+                        </span> -->
+                    </a>
+                </div>
+                <div class="col-6 p-2">
+                    <a href="{% url 'checkout' %}" class="col mt-1 btn btn-success curve">
+                        <span class="text-uppercase">Checkout</span>
+                        <!-- <span class="icon">
                             <i class="fas fa-lock"></i>
-                        </span>
+                        </span> -->
                     </a>
                 </div>
             </div>
