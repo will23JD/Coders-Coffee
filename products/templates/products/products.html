@@ -70,7 +70,7 @@
                             <div class="card-footer bg-white pt-0 border-0 text-left">
                                 <div class="row">
                                     <div class="col">
-                                        <p class="lead mb-0 text-left font-weight-bold">$<span id="{{ product.sku }}"></span></p>
+                                        <p class="lead mb-0 text-left font-weight-bold">$<span id="{{ product.sku }}">{{ product.price }}</span></p>
                                         {% if product.rating %}
                                             <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
                                         {% else %}
@@ -81,14 +81,17 @@
                             </div>
                         </div>
                     </div>
-                    <script type="text/javascript">
-                        var size = 500
-                        var price = '{{ product.price }}';
-                        var finalprice = price * size;
-                        var viewprice = $('#{{ product.sku }}');
-                        viewprice.append(finalprice);
-                        console.log(viewprice)
-                    </script>
+                    {% if product.has_sizes %}
+                        <script type="text/javascript">
+                            var size = 500
+                            var price = '{{ product.price }}';
+                            var finalprice = price * size;
+                            var viewprice = $('#{{ product.sku }}');
+                            viewprice.empty()
+                            viewprice.append(finalprice);
+                            console.log(viewprice)
+                        </script>
+                    {% endif %}
                 {% endfor %}
             </div>
         </div>
