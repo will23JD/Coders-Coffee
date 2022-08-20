@@ -24,6 +24,12 @@
                 {% for item in wishitems %}
                     <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 pb-1">
                         <div class="card h-100 border-0">
+                            <div class="position-relative">
+                                <form class="form" action="{% url 'delete_from_wishlist' item.product.id %}" method="POST">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-lg curve absolute-r"><i class="fas fa-trash-alt"></i></button>
+                                </form>
+                            </div>
                             {% if item.product.image %}
                             <a href="{% url 'product_detail' item.product.id %}">
                                 <img class="card-img-top img-fluid" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">

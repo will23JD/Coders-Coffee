@@ -126,6 +126,12 @@ body {
     bottom: 0px;
   }
 
+  .absolute-r {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  }
+
 /* -------------------------------- Overlay */
 
 .overlay {
