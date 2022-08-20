@@ -51,7 +51,7 @@
                     </p>
                 {% endif %}
                 {% if product.rating %}
-                    <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                    <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.get_rating }} / 5</small>
                 {% else %}
                     <small class="text-muted">No Rating</small>
                 {% endif %}
@@ -107,6 +107,30 @@
                 <div class="card mt-3">
                     <p class="my-2 pl-2">{{ product.description }}</p>
                 </div>
+                <div>
+                    {% if request.user.is_authenticated %}
+                    <form action="{% url 'add_review' product.id %}" method="POST">
+                        {% csrf_token %}
+                        <div id="radioDiv" class="rate">
+                            <input type="radio" id="star5" name="rate" value="5" />
+                            <label for="star5" title="text">5 stars</label>
+                            <input type="radio" id="star4" name="rate" value="4" />
+                            <label for="star4" title="text">4 stars</label>
+                            <input type="radio" id="star3" name="rate" value="3" />
+                            <label for="star3" title="text">3 stars</label>
+                            <input type="radio" id="star2" name="rate" value="2" />
+                            <label for="star2" title="text">2 stars</label>
+                            <input type="radio" id="star1" name="rate" value="1" />
+                            <label for="star1" title="text">1 star</label>
+                        </div>
+                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        <input type="hidden" id="rating" name="rating" value="">
+                        <input id="s-rating" type="submit" class="btn btn" value="Submit">
+                    </form>
+                    {% else %}
+                    Please Login to leave a review.
+                    {% endif%}
+                </div>
             </div>
         </div>
     </div>
@@ -127,7 +151,7 @@
         });
 
         $("#s-select").change(function(){
-            var size = $(this).val()
+            var size = $(this).val();
             var price = '{{ product.price }}';
             var finalprice = price * size;
             var viewprice = $('#product-price');
@@ -136,7 +160,18 @@
             viewprice.append(finalprice);
             wishsize.empty();
             wishsize.val(size);
-        }); 
+        });
+        $(document).ready(function(){
+            $("#s-rating").click(function(){
+                var radioValue = $("input[name='rate']:checked").val();
+                var rating = $("#rating");
+                if(radioValue){
+                    rating.val(radioValue)
+                }else{
+                    rating.val(0)
+                }
+            });
+        });
     </script>
 
 {% endblock %}
