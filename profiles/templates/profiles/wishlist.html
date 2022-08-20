@@ -33,18 +33,36 @@
                                 <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
                             </a>
                             {% endif %}
-                            <div class="card-body pb-0">
-                                <p class="mb-0">{{ item.product.name }}</p>
+                            <div class="card-body p-0">
+                                <p class="mb-0 mx-1 bold">{{ item.product.name }}</p>
                             </div>
                             <div class="card-footer bg-white pt-0 border-0 text-left">
                                 <div class="row">
-                                    <div class="col">
-                                        <p class="lead mb-0 text-left font-weight-bold">$<span id="{{ item.product.sku }}">{{ item.product.price }}</span></p>
+                                    <div class="col-12 p-0">
+                                        <p class="lead mb-0 text-left">$<span id="{{ item.product.sku }}">{{ item.product.price }}</span></p>
+                                        {% if item.size %}
+                                        <hr class="m-1">
+                                        <small>Size: {{ item.size }}grams</small>
+                                        <hr class="m-1">
+                                        {% else %}
+                                        <hr class="m-1">
+                                        <small>One Size</small>
+                                        <hr class="m-1">
+                                        {% endif %}
                                         {% if item.product.rating %}
                                             <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ item.product.rating }} / 5</small>
                                         {% else %}
                                             <small class="text-muted">No Rating</small>
                                         {% endif %}
+                                    </div>
+                                    <div class="col-12 p-0">
+                                        <form class="form" action="{% url 'add_to_bag' item.product.id %}" method="POST">
+                                            {% csrf_token %}
+                                            <input type="submit" class="btn btn-success curve text-uppercase mt-3" style="width: 100%;" value="Add to Bag">
+                                            <input type="hidden" name="quantity" value="1">
+                                            <input type="hidden" name="product_size" value="{{ item.size }}">
+                                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -52,7 +70,7 @@
                     </div>
                     {% if item.product.has_sizes %}
                         <script type="text/javascript">
-                            var size = 500
+                            var size = '{{ item.size }}'
                             var price = '{{ item.product.price }}';
                             var finalprice = price * size;
                             var viewprice = $('#{{ item.product.sku }}');

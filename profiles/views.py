@@ -27,13 +27,17 @@ def add_to_wishlist(request, item_id):
 
     product = get_object_or_404(Product, pk=item_id)
     redirect_url = request.POST.get('redirect_url')
+    size = None
+    if 'product_size' in request.POST:
+        size = request.POST['product_size']
+
     if request.method == 'POST':
         wish_item = Wishlist.objects.filter(user=request.user, product=product)
         if wish_item:
             messages.info(request, f'Product already in Wishlist')
         else:
             messages.success(request, f'Added to Wishlist')
-            Wishlist.objects.create(user=request.user, product=product)
+            Wishlist.objects.create(user=request.user, product=product, size=size)
 
     return redirect(redirect_url)
 
