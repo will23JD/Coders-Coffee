@@ -29,3 +29,8 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Review(models.Model):
+    product = models.ForeignKey('Product', null=True, blank=True, related_name='reviews', on_delete=models.CASCADE)
+    rating = models.IntegerField(null=True, blank=True)
