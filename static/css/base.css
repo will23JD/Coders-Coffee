@@ -118,8 +118,13 @@ body {
 }
 
 #add-to-bag {
-    width: 90%;
+    width: 100%;
 }
+
+.absolute {
+    position: absolute;
+    bottom: 0px;
+  }
 
 /* -------------------------------- Overlay */
 

@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
@@ -6,10 +6,12 @@ from .models import UserProfile, Wishlist
 from .forms import UserProfileForm
 
 from checkout.models import Order
+from products.models import Product
 
 
 @login_required
 def wishlist(request):
+    """Display user's wishlist"""
 
     wishitems = Wishlist.objects.filter(user=request.user)
     context = {
@@ -17,6 +19,23 @@ def wishlist(request):
     }
 
     return render(request, 'profiles/wishlist.html', context)
+
+
+@login_required
+def add_to_wishlist(request, item_id):
+    """ Add a quantity of the specified product to the shopping bag """
+
+    product = get_object_or_404(Product, pk=item_id)
+    redirect_url = request.POST.get('redirect_url')
+    if request.method == 'POST':
+        wish_item = Wishlist.objects.filter(user=request.user, product=product)
+        if wish_item:
+            messages.info(request, f'Product already in Wishlist')
+        else:
+            messages.success(request, f'Added to Wishlist')
+            Wishlist.objects.create(user=request.user, product=product)
+
+    return redirect(redirect_url)
 
 
 @login_required
