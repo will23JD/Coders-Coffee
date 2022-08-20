@@ -2,10 +2,21 @@ from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
-from .models import UserProfile
+from .models import UserProfile, Wishlist
 from .forms import UserProfileForm
 
 from checkout.models import Order
+
+
+@login_required
+def wishlist(request):
+
+    wishitems = Wishlist.objects.filter(user=request.user)
+    context = {
+        'wishitems': wishitems,
+    }
+
+    return render(request, 'profiles/wishlist.html', context)
 
 
 @login_required
