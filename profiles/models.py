@@ -4,6 +4,18 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 from django_countries.fields import CountryField
+from products.models import Product
+
+
+class Wishlist(models.Model):
+    """
+    A user profile model for a wishlist
+    """
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.product.name
 
 
 class UserProfile(models.Model):
