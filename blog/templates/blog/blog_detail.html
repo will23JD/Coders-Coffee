@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="overlay"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col mt-3">
+            <p>
+                <a class="text-black" href="{% url 'home' %}">Home</a> > <a class="text-black" href="{% url 'blog' %}">Blogs</a>
+                 > {{ blog_detail.title }}
+            </p>
+            <h2 class="logo-font text-center">{{ blog_detail.title }}</h2>
+            <hr class="w-50 mb-1">
+        </div>
+    </div>
+    <div class="row">
+        <div class="product-container col-lg-10 offset-lg-1">
+            <div class="col-12">
+                <div class="card-12 curve bg-white">
+                    <div class="d-none d-md-block col-md-8 offset-md-2 masthead-image">
+                        {% if "placeholder" in blog_detail.featured_image.url %}
+                        <img class="card-img-top"
+                            src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
+                        {% else %}
+                        <img class="card-img-top" src="{{ blog_detail.featured_image.url }}">
+                        {% endif %}
+                    </div>
+                    <div class="card-body">
+                        <div class="image-flash">
+                            <p class="author">
+                                Author: {{ blog_detail.author }} |
+                                <span class="card-text text-muted">
+                                    {{ blog_detail.created_on}}
+                                </span>
+                            </p>
+                        </div>
+                        <hr />
+                        <p class="card-text ">
+                            {{ blog_detail.content | safe }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="btt-button shadow-sm curve border border-black">
+    <a class="btt-link d-flex h-100">
+        <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
+    </a>	
+</div>
+{% endblock %}
