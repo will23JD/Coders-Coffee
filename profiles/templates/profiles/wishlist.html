@@ -55,7 +55,7 @@
                                         <small>One Size</small>
                                         <hr class="m-1">
                                         {% endif %}
-                                        {% if item.product.rating %}
+                                        {% if item.product.get_rating %}
                                             <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ item.product.rating }} / 5</small>
                                         {% else %}
                                             <small class="text-muted">No Rating</small>

@@ -78,14 +78,16 @@ def add_review(request, product_id):
     redirect_url = request.POST.get('redirect_url')
 
     if request.method == 'POST':
-        rating = request.POST.get('rating', 3)
+        rating = request.POST.get('rating')
         reviews = Review.objects.filter(created_by=request.user, product=product)
 
         if reviews.count() > 0:
             review = reviews.first()
             review.rating = rating
             review.save()
+            messages.success(request, 'Successfully added your review!')
         else:
+            messages.success(request, 'Successfully added your review!')
             review = Review.objects.create(
                 product=product,
                 rating=rating,
