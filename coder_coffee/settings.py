@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-8p$if9hqmsqrp6w6(u_2n&#ceip5@b=rkh!@3d79d+0e*mlp=(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['coder-coffee.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -123,15 +123,16 @@ WSGI_APPLICATION = 'coder_coffee.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-DATABASES = {
-        'default': dj_database_url.parse('postgres://qujmssdxetsbzw:da25949c4f23d09cdf3019b554fe57ccc927852b7f9701486235d921b07cf0b7@ec2-52-212-228-71.eu-west-1.compute.amazonaws.com:5432/d22tri71ebkh35')
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
     }
 
 # Password validation
