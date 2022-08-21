@@ -8,7 +8,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('products', '0005_alter_product_has_sizes'),
+        ('products', '0002_auto_20220810_1458'),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
         ('profiles', '0001_initial'),
     ]
