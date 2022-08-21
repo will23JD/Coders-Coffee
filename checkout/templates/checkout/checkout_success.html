@@ -70,11 +70,25 @@
                             </div>
                             <div class="col-7">
                                 <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                                <p class="my-0 ">${{ item.product.price }}</p>
+                                <p class="my-0 ">$
+                                    <span id="{{ item.product.sku }}{{ item.product_size }}">
+                                        {{ item.product.price }}
+                                    </span>
+                                </p>
                                 <p class="my-0 small">{% if item.product_size %}Size: {{ item.product_size }}{% endif %}</p>
                                 <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
                             </div>
                         </div>
+                        {% if item.product.has_sizes %}
+                            <script type="text/javascript">
+                                var size = '{{ item.product_size }}'
+                                var price = '{{ item.product.price }}';
+                                var finalprice = price * size;
+                                var viewprice = $('#{{ item.product.sku }}{{ item.product_size }}');
+                                viewprice.empty()
+                                viewprice.append(finalprice);
+                            </script>
+                        {% endif %}
                     {% endfor %}
                     <p>
                         <button class="btn btn curve" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">

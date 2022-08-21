@@ -16,6 +16,7 @@ def wishlist(request):
     wishitems = Wishlist.objects.filter(user=request.user)
     context = {
         'wishitems': wishitems,
+        'on_profile_page': True
     }
 
     return render(request, 'profiles/wishlist.html', context)
@@ -34,10 +35,11 @@ def add_to_wishlist(request, item_id):
     if request.method == 'POST':
         wish_item = Wishlist.objects.filter(user=request.user, product=product)
         if wish_item:
-            messages.info(request, f'Product already in Wishlist')
+            messages.info(request, 'Product already in Wishlist')
         else:
-            messages.success(request, f'Added to Wishlist')
+            messages.success(request, 'Added to Wishlist')
             Wishlist.objects.create(user=request.user, product=product, size=size)
+
 
     return redirect(redirect_url)
 
@@ -62,7 +64,7 @@ def profile(request):
         form = UserProfileForm(request.POST, instance=profile)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Profile updated successfully')
+            messages.success(request, 'Delivery information updated successfully')
         else:
             messages.error(request, 'Update failed. Please ensure the form is valid.')
     else:

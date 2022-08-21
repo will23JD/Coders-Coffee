@@ -29,18 +29,20 @@
                 <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
                     {% csrf_token %}
                     {{ form|crispy }}
-                    <button class="btn btn-black curve text-uppercase float-right">Update Information</button>
+                    <button class="btn btn-success curve text-uppercase float-right">Update Information</button>
                 </form>
             </div>
-            <div class="col-12 col-lg-6">
+            <div class="col-12 col-lg-6 bg-white curve">
                 <p class="text-muted">Order History</p>
                 <div class="order-history table-responsive">
                     <table class="table table-sm table-borderless">
                         <thead>
-                            <tr>Order Number</tr>
-                            <tr>Date</tr>
-                            <tr>Items</tr>
-                            <tr>Order Total</tr>
+                            <tr>
+                                <th>Order Number</th>
+                                <th>Date</th>
+                                <th>Items</th>
+                                <th>Order Total</th>
+                            </tr>
                         </thead>
                         <tbody>
                             {% for order in orders %}
