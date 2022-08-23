@@ -6,7 +6,8 @@ class BlogForm(forms.ModelForm):
 
     class Meta:
         model = Blog
-        fields = '__all__'
+        fields = (
+            'title', 'author', 'featured_image', 'content')
         widgets = {
             'author': forms.TextInput(
                 attrs={
