@@ -130,8 +130,41 @@
         {% block page_header %}
         {% endblock %}
 
-        {% block content %}
+        <div id="page-container">
+            {% block content %}
+            {% endblock %}
+        </div>
+
+        {% block page_footer %}
         {% endblock %}
+
+        <footer class="footer mt-auto bg-grey">
+            <div class="m-0 text-center text-white">Follow us:
+              <a href="http://facebook.com" target="_blank" rel="noopener"
+                aria-label="Visit our Facbook page (opens in a new tab)" class="text-white"><i class="fab fa-facebook"></i></a>
+        
+              <a href="http://twitter.com" target="_blank" rel="noopener"
+                aria-label="Visit our Twitter page (opens in a new tab)" class="text-white"><i
+                  class="fab fa-twitter-square"></i></a>
+        
+              <a href="http://youtube.com" target="_blank" rel="noopener"
+                aria-label="Visit our Youtube page (opens in a new tab)" class="text-white"><i class="fab fa-youtube"></i></a>
+        
+              <a href="http://instagram.com" target="_blank" rel="noopener"
+                aria-label="Visit our Instagram page (opens in a new tab)" class="text-white"><i
+                  class="fab fa-instagram"></i></a>
+        
+              <a href="http://whatsapp.com" target="_blank" rel="noopener"
+                aria-label="Visit our WhatsApp page (opens in a new tab)" class="text-white"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p class="m-0 text-center text-white">
+              &copy;
+              <span id="copyright">
+                  <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script>
+              </span>
+              Will23JD All Rights Reserved
+            </p>
+          </footer>
 
         {% block postloadjs %}
             <script type="text/javascript">
