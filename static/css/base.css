@@ -250,6 +250,28 @@ body {
     overflow-y: auto;
 }
 
+
+
+.open_img {
+    height: 500px;
+    object-fit: cover;
+}
+
+/* Likes */
+
+
+.like {
+    color: #dc3545;
+    background: transparent;
+    transition: transform .2s; /* Animation */
+}
+
+.like:hover {
+    color: #dc3545;
+    transform: scale(1.5);
+    background: transparent;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */

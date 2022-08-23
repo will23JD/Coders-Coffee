@@ -30,6 +30,21 @@ def blog_detail(request, blog_id):
 
 
 @login_required
+def like_blog(request, blog_id):
+    """ Like a blog """
+
+    blog = get_object_or_404(Blog, pk=blog_id)
+    redirect_url = request.POST.get('redirect_url')
+
+    if blog.likes.filter(id=request.user.id).exists():
+        blog.likes.remove(request.user)
+    else:
+        blog.likes.add(request.user)
+
+    return redirect(redirect_url)
+
+
+@login_required
 def add_blog(request):
     """ Add a blog to the store """
 

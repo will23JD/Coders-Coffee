@@ -23,31 +23,31 @@
         </div>
     </div>
     <div class="row">
-        <div class="product-container col-lg-10 offset-lg-1">
-            <div class="col-12">
-                <div class="card-12 curve bg-white">
-                    <div class="d-none d-md-block col-md-8 offset-md-2 masthead-image">
-                        {% if "placeholder" in blog_detail.featured_image.url %}
-                        <img class="card-img-top"
-                            src="#">
-                        {% else %}
-                        <img class="card-img-top" src="{{ blog_detail.featured_image.url }}">
-                        {% endif %}
-                    </div>
-                    <div class="card-body">
-                        <div class="image-flash">
-                            <p class="author">
-                                Author: {{ blog_detail.author }} |
-                                <span class="card-text text-muted">
-                                    {{ blog_detail.created_on}}
-                                </span>
-                            </p>
-                        </div>
-                        <hr />
-                        <p class="card-text ">
-                            {{ blog_detail.content | safe }}
-                        </p>
-                    </div>
+        <div class="col-md-6 offset-md-3">
+            {% if "placeholder" in discussion.featured_image.url %}
+
+            {% else %}
+            <img class="open_img" aria-label="Discussion featured image" src=" {{ blog_detail.featured_image.url }}"
+                width="100%">
+            {% endif %}
+        </div>
+        <div class="col-12">
+            <div class="text-muted">Author: {{ blog_detail.author }} | {{ blog_detail.created_on}} |
+                {% if user.is_authenticated %}
+                    <form class="d-inline" action="{% url 'like_blog' blog_detail.id %}" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        <button type="submit" class="btn like curve"><i class="fas fa-heart"></i></button>
+                    </form>
+                {% else %}
+                    <span class="tex-secondary"><i class="far fa-arrow-alt-circle-up"></i></span>
+                {% endif %}
+                    <span class="tex-secondary">{{ blog_detail.number_of_likes }}</span>
+                </form>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    {{ blog_detail.content | safe }}
                 </div>
             </div>
         </div>

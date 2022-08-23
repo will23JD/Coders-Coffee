@@ -10,6 +10,15 @@ class Blog(models.Model):
     content = models.TextField()
     featured_image = models.ImageField(null=True, blank=True)
     created_on = models.DateTimeField(auto_now=True)
+    likes = models.ManyToManyField(
+        User, related_name='blog_like', blank=True)
+
+
+    class Meta:
+        ordering = ["-created_on"]
 
     def __str__(self):
         return self.title
+
+    def number_of_likes(self):
+        return self.likes.count()
