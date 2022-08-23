@@ -22,7 +22,7 @@
         <div class="product-container col-lg-10 offset-lg-1">
             <div class="row">
                 {% for item in wishitems %}
-                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 pb-1">
+                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 p-2">
                         <div class="card h-100 border-0">
                             <div class="position-relative">
                                 <form class="form" action="{% url 'delete_from_wishlist' item.product.id %}" method="POST">

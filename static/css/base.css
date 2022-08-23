@@ -262,7 +262,10 @@ body {
     overflow-y: auto;
 }
 
-
+.img {
+    height: 400px;
+    object-fit: cover;
+}
 
 .open_img {
     height: 500px;
