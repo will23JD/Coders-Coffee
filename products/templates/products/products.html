@@ -88,17 +88,6 @@
                             </div>
                         </div>
                     </div>
-                    {% if product.has_sizes %}
-                        <script type="text/javascript">
-                            var size = 500
-                            var price = '{{ product.price }}';
-                            var finalprice = price * size;
-                            var viewprice = $('#{{ product.sku }}');
-                            viewprice.empty()
-                            viewprice.append(finalprice);
-                            console.log(viewprice)
-                        </script>
-                    {% endif %}
                 {% endfor %}
             </div>
         </div>
@@ -111,9 +100,6 @@
 </div>
 {% endblock %}
 
-{% block page_footer %}
-
-{% endblock %}
 
 {% block postloadjs %}
     {{ block.super }}
@@ -121,9 +107,7 @@
 		$('.btt-link').click(function(e) {
 			window.scrollTo(0,0)
 		})
-	</script>
-    
-    <script type="text/javascript">
+
         $('#sort-selector').change(function() {
             var selector = $(this);
             var currentUrl = new URL(window.location);
@@ -145,4 +129,17 @@
             }
         });
     </script>
+    {% for product in products %}
+        {% if product.has_sizes %}
+            <script type="text/javascript">
+                var size = 500
+                var price = '{{ product.price }}';
+                var finalprice = price * size;
+                var viewprice = $('#{{ product.sku }}');
+                viewprice.empty()
+                viewprice.append(finalprice);
+                console.log(viewprice)
+            </script>
+        {% endif %}
+    {% endfor %}
 {% endblock %}
