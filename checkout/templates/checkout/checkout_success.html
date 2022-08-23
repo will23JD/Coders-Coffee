@@ -59,7 +59,7 @@
                 <div class="order-confirmation-wrapper curve">
                     {% for item in order.lineitems.all %}
                         <div class="row">
-                            <div class="col-2 mb-1">
+                            <div class="col-sm-2 col-5 mb-1">
                                 <a href="{% url 'product_detail' item.product.id %}">
                                     {% if item.product.image %}
                                         <img class="w-100" src="{{ item.product.image.url }}" alt="{{ product.name }}">
@@ -68,7 +68,7 @@
                                     {% endif %}
                                 </a>
                             </div>
-                            <div class="col-7">
+                            <div class="col-sm-3 col-5">
                                 <p class="my-0"><strong>{{ item.product.name }}</strong></p>
                                 <p class="my-0 ">$
                                     <span id="{{ item.product.sku }}{{ item.product_size }}">
@@ -77,6 +77,27 @@
                                 </p>
                                 <p class="my-0 small">{% if item.product_size %}Size: {{ item.product_size }}{% endif %}</p>
                                 <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
+                            </div>
+                            <div class="col-md-5">
+                                <p class="px-3 mb-0">Leave a Review</p>
+                                <form action="{% url 'add_review' item.product.id %}" method="POST">
+                                    {% csrf_token %}
+                                    <div id="radioDiv" class="rate">
+                                        <input type="radio" id="star5" name="rate" value="5" />
+                                        <label for="star5" title="text">5 stars</label>
+                                        <input type="radio" id="star4" name="rate" value="4" />
+                                        <label for="star4" title="text">4 stars</label>
+                                        <input type="radio" id="star3" name="rate" value="3" />
+                                        <label for="star3" title="text">3 stars</label>
+                                        <input type="radio" id="star2" name="rate" value="2" />
+                                        <label for="star2" title="text">2 stars</label>
+                                        <input type="radio" id="star1" name="rate" value="1" />
+                                        <label for="star1" title="text">1 star</label>
+                                    </div>
+                                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                    <input type="hidden" id="rating" name="rating" value="">
+                                    <input id="s-rating" type="submit" class="btn btn mt-1" value="Submit">
+                                </form>
                             </div>
                         </div>
                         {% if item.product.has_sizes %}
@@ -238,4 +259,22 @@
 			</div>
 		</div>
     </div>
+{% endblock %}
+{% block postloadjs %}
+    {{ block.super }}
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#s-rating").click(function(){
+                var radioValue = $("input[name='rate']:checked").val();
+                var rating = $("#rating");
+                if(radioValue){
+                    rating.val(radioValue)
+                }else{
+                    rating.val(0)
+                }
+            });
+        });
+    </script>
+
 {% endblock %}
