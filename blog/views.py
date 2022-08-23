@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 from .models import Blog
-from .forms import BlogForm
+from .forms import BlogForm, CommentForm
 
 # Create your views here.
 def blog(request):
@@ -21,9 +21,12 @@ def blog_detail(request, blog_id):
     """ Return individual blog details """
 
     blog_detail = get_object_or_404(Blog, pk=blog_id)
+    comments = blog_detail.comments.order_by("-created_on")
 
     context = {
         'blog_detail': blog_detail,
+        'comments': comments,
+        'commentform': CommentForm(),
     }
 
     return render(request, 'blog/blog_detail.html', context)
@@ -40,6 +43,28 @@ def like_blog(request, blog_id):
         blog.likes.remove(request.user)
     else:
         blog.likes.add(request.user)
+
+    return redirect(redirect_url)
+
+
+@login_required
+def comment(request, blog_id):
+    """ Comment on a blog """
+
+    blog = get_object_or_404(Blog, pk=blog_id)
+    redirect_url = request.POST.get('redirect_url')
+
+    if request.method == 'POST':
+        commentform = CommentForm(request.POST, request.FILES)
+        if commentform.is_valid():
+            commentform.instance.name = request.user.username
+            commentform.instance.blog = blog
+            comment = commentform.save()
+            messages.success(request, 'Successfully commented!')
+            return redirect(reverse('blog_detail', args=[blog.id]))
+        else:
+            messages.error(request, 'Comment Failed. Please ensure the form is valid.')
+            form = CommentForm()
 
     return redirect(redirect_url)
 
