@@ -11,7 +11,7 @@ class Blog(models.Model):
     featured_image = models.ImageField(null=True, blank=True)
     created_on = models.DateTimeField(auto_now=True)
     likes = models.ManyToManyField(
-        User, related_name='blog_like', blank=True)
+        User, related_name='like_blog', blank=True)
 
 
     class Meta:
