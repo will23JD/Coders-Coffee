@@ -37,7 +37,11 @@
                     <form class="d-inline" action="{% url 'like_blog' blog_detail.id %}" method="POST">
                         {% csrf_token %}
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                        <button type="submit" class="btn like curve"><i class="fas fa-heart"></i></button>
+                        {% if liked %}
+                            <button type="submit" class="btn like curve"><i class="fas fa-heart"></i></button>
+                        {% else %}
+                            <button type="submit" class="btn like curve"><i class="far fa-heart"></i></button>
+                        {% endif %}
                     </form>
                 {% else %}
                     <span class="tex-secondary"><i class="far fa-arrow-alt-circle-up"></i></span>
