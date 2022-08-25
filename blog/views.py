@@ -101,6 +101,17 @@ def edit_comment(request, comment_id):
 
 
 @login_required
+def delete_comment(request, comment_id):
+    """ Delete a comment from a blog """
+
+    comment = get_object_or_404(Comment, pk=comment_id)
+    query = request.GET.get('query')
+    comment.delete()
+    messages.success(request, 'comment deleted!')
+    return redirect(reverse('blog_detail', args=[query]))
+
+
+@login_required
 def add_blog(request):
     """ Add a blog to the store """
 
