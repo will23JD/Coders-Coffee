@@ -59,6 +59,7 @@ def delete_from_wishlist(request, item_id):
 def profile(request):
     """ Display the user's profile. """
     profile = get_object_or_404(UserProfile, user=request.user)
+    orders = profile.orders.all()
 
     if request.method == 'POST':
         form = UserProfileForm(request.POST, instance=profile)
@@ -69,13 +70,11 @@ def profile(request):
             messages.error(request, 'Update failed. Please ensure the form is valid.')
     else:
         form = UserProfileForm(instance=profile)
-        orders = profile.orders.all()
 
     template = 'profiles/profile.html'
     context = {
-        'form': form,
         'orders': orders,
-        'on_profile_page': True
+        'form': form,
     }
 
     return render(request, template, context)
@@ -92,6 +91,23 @@ def order_history(request, order_number):
     template = 'checkout/checkout_success.html'
     context = {
         'order': order,
+        'from_profile': True
+    }
+
+    return render(request, template, context)
+
+
+def leave_review(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
+
+    # messages.info(request, (
+    #     f'This is a past confirmation for order number {order_number}. '
+    #     'A confirmation email was sent on the order date.'
+    # ))
+
+    template = 'products/product_detail.html'
+    context = {
+        'product': product,
         'from_profile': True
     }
 
