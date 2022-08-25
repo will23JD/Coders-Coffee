@@ -58,8 +58,8 @@
     </div>
     <div class="row">
         <div class="card-body col-md-6">
-            {% if user.is_authenticated %}
             <h3>Leave a comment:</h3>
+            {% if user.is_authenticated %}
             <p>Posting as: {{ user.username }}</p>
             <form action="{% url 'comment' blog_detail.id %}" method="POST" class="form">
                 {% csrf_token %}
@@ -67,6 +67,12 @@
                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 <button type="submit" class="btn btn-success curve">Submit</button>
             </form>
+            {% else %}
+            <p>
+                <a href="{% url 'account_login' %}" class="text-black logo-font">Login</a> 
+                in to leave a comment
+            </p>
+            
             {% endif %}
         </div>
         <div class="col-md-6 card-body">
@@ -78,9 +84,11 @@
                     {{ comment.name }}
                     <span class=" text-muted font-weight-normal">
                         {{ comment.created_on }}
+                        {% if user.username == comment.name %}
                         <a href="{% url 'edit_comment' comment.id %}">Edit</a> |
                         <a class="text-danger" onclick="return confirm('Are you sure you want to delete this Comment?');"
                             href="{% url 'delete_comment' comment.id %}?query={{ blog_detail.id }}">Delete</a>
+                        {% endif %}
                     </span>
                 </p>
                 {{ comment.body | linebreaks }}
