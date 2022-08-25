@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
-from .models import Blog
+from .models import Blog, Comment
 from .forms import BlogForm, CommentForm
 
 # Create your views here.
@@ -71,6 +71,33 @@ def comment(request, blog_id):
             form = CommentForm()
 
     return redirect(redirect_url)
+
+
+@login_required
+def edit_comment(request, comment_id):
+    """ Edit a comment on a blog """
+
+    comment = get_object_or_404(Comment, pk=comment_id)
+    if request.method == 'POST':
+        form = CommentForm(request.POST, request.FILES, instance=comment)
+        success_url = request.POST.get('previous_page')
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated Comment!')
+            return redirect(success_url)
+        else:
+            messages.error(request, 'Failed to update Comment. Please ensure the form is valid.')
+    else:
+        form = CommentForm(instance=comment)
+        messages.info(request, f'You are editing')
+
+    template = 'blog/edit_comment.html'
+    context = {
+        'form': form,
+        'comment': comment,
+    }
+
+    return render(request, template, context)
 
 
 @login_required

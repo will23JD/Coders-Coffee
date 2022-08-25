@@ -78,6 +78,7 @@
                     {{ comment.name }}
                     <span class=" text-muted font-weight-normal">
                         {{ comment.created_on }}
+                        <a href="{% url 'edit_comment' comment.id %}">Edit</a>
                     </span>
                 </p>
                 {{ comment.body | linebreaks }}
