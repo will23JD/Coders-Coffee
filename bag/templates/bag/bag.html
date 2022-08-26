@@ -19,7 +19,33 @@
             <h2 class="logo-font mb-4">Shopping Bag</h2>
             <hr>
             {% if bag_items %}
-            <table class="table table-sm table-borderless">
+            <div class="d-block d-md-none">
+                {% for item in bag_items %}
+                    <div class="row">
+                        <div class="col-12 col-sm-6 mb-2">
+                            {% include "bag/product-image.html" %}
+                        </div>
+                        <div class="col-12 col-sm-6 mb-2">
+                            {% include "bag/product-info.html" %}
+                        </div>
+                        <div class="col-12 col-sm-6 order-sm-last">
+                            <p class="my-0">Price: ${% if item.product.has_sizes %}{{ item.finalprice }}{% else %}{{ item.product.price }}{% endif %}</p>
+                            <p><strong>Subtotal: </strong>$
+                                {% if item.product.has_sizes %}
+                                    {{ item.finalprice | calc_subtotal:item.quantity }}
+                                {% else %}
+                                    {{ item.product.price | calc_subtotal:item.quantity }} 
+                                {% endif %}
+                            </p>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            {% include "bag/quantity-form.html" %}
+                        </div>
+                    </div>
+                    <div class="row"><div class="col"><hr></div></div>
+                {% endfor %}
+            </div>
+            <table class="table table-sm table-borderless d-none d-md-block">
                 <thead class="text-black">
                     <tr>
                         <th scope="col">Product Info</th>
@@ -32,42 +58,16 @@
                 {% for item in bag_items %}
                     <tr>
                         <td class="p-3 w-25">
-                            {% if item.product.image %}
-                                <img class="img-fluid rounded" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
-                            {% else %}
-                                <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
-                            {% endif %}
+                            {% include "bag/product-image.html" %}
                         </td>
                         <td class="py-3">
-                            <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                            <p class="my-0"><strong>Size: </strong>{% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
-                            <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
+                            {% include "bag/product-info.html" %}
                         </td>
                         <td class="py-3">
                             <p class="my-0">${% if item.product.has_sizes %}{{ item.finalprice }}{% else %}{{ item.product.price }}{% endif %}</p>
                         </td>
                         <td class="py-3 w-25">
-                            <form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
-                                {% csrf_token %}
-                                <select id="q-select" class="form-control form-control-sm" name="quantity" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
-                                    <option value="none" selected disabled hidden>{{ item.quantity }}</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                </select>
-                                {% if item.product.has_sizes %}
-                                    <input type="hidden" name="product_size" value="{{ item.size }}">
-                                {% endif %}
-                            </form>
-                            <a class="update-link text-info"><small>Update</small></a>
-                            <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><small>Remove</small></a>
+                            {% include "bag/quantity-form.html" %}
                         </td>
                         <td class="py-3">
                             <p class="my-0">$
@@ -91,7 +91,7 @@
                 </a>
             {% endif %}
         </div>
-        <div class="col-12 col-lg-4 col-xl-4 mx-lg-2 mb-2 bg-white curve" style="height: 370px;">
+        <div class="col-12 col-lg-4 col-xl-4 mx-lg-2 mb-2 bg-white curve" style="height: 390px;">
             <br>
             <h2 class="logo-font p-2">Total</h2>
             <hr>
@@ -117,15 +117,6 @@
                     <i class="fas fa-lock"></i>
                 </span>
             </a>
-        </div>
-    </div>
-    <div class="row">
-        
-    </div>
-
-    <div class="row">
-        <div class="col-6">
-            
         </div>
     </div>
 </div>
