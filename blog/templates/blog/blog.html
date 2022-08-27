@@ -25,7 +25,7 @@
                     <div class="card">
                         {% if "placeholder" in blog.featured_image.url %}
                         <img class="card-img-top img"
-                            src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
+                            src="{{ MEDIA_URL }}stock_coffee.png">
                         {% else %}
                         <img class="card-img-top img" src="{{ blog.featured_image.url }}">
                         {% endif %}

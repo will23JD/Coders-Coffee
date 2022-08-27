@@ -25,7 +25,8 @@
     <div class="row">
         <div class="col-lg-6">
             {% if "placeholder" in discussion.featured_image.url %}
-
+            <img class="open_img" aria-label="Discussion featured image" src="{{ MEDIA_URL }}stock_coffee.png"
+                width="100%">
             {% else %}
             <img class="open_img" aria-label="Discussion featured image" src=" {{ blog_detail.featured_image.url }}"
                 width="100%">
