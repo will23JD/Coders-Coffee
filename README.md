@@ -59,16 +59,36 @@ The website needs to enable **Site owners** to:
 - As a site owner I can edit blog posts so that the information can be up to date.
 - As a site owner I can delete a blog post so that **only relevant post will be there **
 
-## Agile
+### Agile
 In this project I used agile works flows to help keep on track and understand where my project is in the development cycle.
 
-### Kanban Board and Issues
+#### Kanban Board and Issues
 
 ![Kanban Board](RM-media/ccproject.png)
 
 Github Issues were used to create user stories which where placed into a [backlog](https://github.com/will23JD/Coders-Coffee/milestone/1). and added to a [project](https://github.com/users/will23JD/projects/2).
 I used the Kanban board colums Todo, In progress and Done to keep track of user stories as I moved through the project. This kept me on track through the
 cycle of development.
+
+### e-Commerce Type
+- This is a B2C(business to customer) e-commerce Website for coffee and developer themed gifts.
+
+### Marketing Strategy
+- **SEO** this is a when a business makes sure their website complies with current standards. SEO must be carefully managed so the website is not treaded as 
+spam as for an e-commerce store this would mean no customers would be recommended the site. Good SEO is achived by having information in the header, articals,
+asides, footer, ect... rather than just h1, h2 , h3 and so on. Another way of improving SEO is by having usefull meta keywords and description tags and not 
+stuffing the page with the keyword. There are many other factors that go into measuring a websites value such as google Rater which are people who rate sites 
+using the [Rater Guidelines](https://static.googleusercontent.com/media/guidelines.raterhub.com/en//searchqualityevaluatorguidelines.pdf).
+
+- **Content Marketing** in the form of a newsletter using [Mailchimp](https://mailchimp.com/en-gb/grow-with-mailchimp/?gclid=CjwKCAjwpKyYBhB7EiwAU2Hn2QAWEN5sI9n6jDbOQY4ax3Wz7-mhpmMfsgzJSJIjXpXUk0_g2H9egxoCWpsQAvD_BwE&gclsrc=aw.dswas) as well as blog post where used in this site.
+Content can be created and pushed to these channels to communicate with customer about new products changes to the business and more, this bring the customer closer 
+to the business showing it to be a reliable, trustworthly place for information and products.
+
+- **Social Media Marketing** this is an easy way to reach out to new and exsisting customers and build a community around your business. New, products and more can 
+be shared to customer free or charge. Many social platforms also allow for paid promotion which an be a relitively cheap way to push your business out to more people.
+This project took use of this with [facebook](https://www.facebook.com/Coders-Coffee-104392309072613) webstore.
+
+![Facebook page](RM-media/facebook-store.png)
 
 ## Website Structure
 
