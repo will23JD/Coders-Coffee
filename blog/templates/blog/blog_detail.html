@@ -24,11 +24,11 @@
     </div>
     <div class="row">
         <div class="col-lg-6">
-            {% if "placeholder" in discussion.featured_image.url %}
-            <img class="open_img" aria-label="Discussion featured image" src="{{ MEDIA_URL }}stock_coffee.png"
-                width="100%">
+            {% if blog_detail.featured_image %}
+            <img class="open_img" aria-label="Blog featured image" src=" {{ blog_detail.featured_image.url }}"
+            width="100%">
             {% else %}
-            <img class="open_img" aria-label="Discussion featured image" src=" {{ blog_detail.featured_image.url }}"
+            <img class="open_img" aria-label="Blog standard image" src="{{ MEDIA_URL }}homeimage.jpg"
                 width="100%">
             {% endif %}
         </div>

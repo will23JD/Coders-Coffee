@@ -20,14 +20,15 @@
     </div>
     <div class="row">
         {% for blog in blogs %}
-            <div class="col-md-6">
+            <div class="col-md-6 mb-4">
                 <a href="{% url 'blog_detail' blog.id %}" class="text-black">
                     <div class="card">
-                        {% if "placeholder" in blog.featured_image.url %}
-                        <img class="card-img-top img"
-                            src="{{ MEDIA_URL }}stock_coffee.png">
+                        {% if blog.featured_image %}
+                        <img class="open_img" aria-label="Blog featured image" src=" {{ blog.featured_image.url }}"
+                        width="100%">
                         {% else %}
-                        <img class="card-img-top img" src="{{ blog.featured_image.url }}">
+                        <img class="open_img" aria-label="Blog standard image" src="{{ MEDIA_URL }}homeimage.jpg"
+                            width="100%">
                         {% endif %}
                         {% if request.user.is_superuser %}
                         <small class="ml-4">
