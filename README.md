@@ -111,7 +111,6 @@ I use site map to see where different templates and apps would need to connect t
 
 ![Site Map](RM-media/sitemap.png)
 
-
 ### Wireframes
 <hr>
 <details>
@@ -178,6 +177,72 @@ bootstrap success colour to make them stand out.
 For this project I only user one font Montserrat to keep with the clean look. The font is versatile enough using uppercase to be sufficient for both headlines and other text.
 
 ## Existing Features
+
+### NavBar and Footer
+![Home Page](RM-media/homepage-f.png)
+
+A sleek small navbar has been used on the site to keep it from disctracting from the content. The navbar is split into three sections:
+The logo, links to the product which use bootstrap dropdowns to give more options and the blog, links to the account and bag apps.
+This design is simple and familiar so user will have an easy time navigating the site.
+
+The Footer follows to same design and features links to social platforms and and copyright tag.
+
+### Products Page
+![Products Page](RM-media/productspage-f.png)
+
+Using bootstap cards and django for statments, each product is rendered out in its own card. Mobile users will have 1 card per row encreasing to 6 on large screens.
+Each card has the image of the product, name and rating. If the login user is super there will also be a edit and delete buttons.
+When the product image is clicked the user will be taken to the products detail page.
+
+### Product Detail Page
+![Products Detail Page](RM-media/productdetailpage-f.png)
+
+The product detail page is split into 2 halves on large screens then stacked on smaller screens.
+On the right of the page is the product image, On the left there is the product name, rating, price, sizes(if it has them) and quantity. This is followed by the add the bag button and the wishlist button. This page also contains the description of the product at the end.
+
+### Bag
+![Bag Page](RM-media/bagpage-f.png)
+
+The bag page link the product detail page is split in to two sections. One containing a summary of the bag and buttons to update the quantity or remove a product in the bag.
+The second contains the sub-total, delivery if there is any and the Total with a large Checkout button to take the use to checkout page.
+
+### Checkout 
+![Checkout Page](RM-media/checkoutpage-f.png)
+
+Keeping with the same style the checkout page is again split into two sections a small bag summery and then the checkout forms. Like the other pages these then stack
+on smaller screen.
+At the end of the forms there are to buttons one to go back to the bag and one to complete the order.
+
+### Checkout Success
+![Checkout Success Page](RM-media/checkoutsuccesspage-f.png)
+
+The checkout success page features a order number and date at the top followed by a summery of all the products order with there price, size and quantity listed.
+After the summery there is a more information button which extends the page and shows all the order information like, delivery and billing. Last there is a products button
+which takes the user back to the products page.
+
+### Profile
+![Profile Page](RM-media/profilepage-f.png)
+
+The profile page contains two sections then saved information and the order history. The user can update their information by changing the fields and then clicking update.
+The order history shows all the orders made by that user, clicking on one will take them to the checkout success page with that order rendered out and replace the products button with a back to profile button.
+
+### Wishlist
+![Wishlist Page](RM-media/wishlistpage-f.png)
+
+The wishlist page contains all the items a user has added to there wishlish. Like the products page the amount of cards per row decreses down to one on the smallest screens.
+Clicking any product will take you to that products detail page, clicking the add to bag button will add the product straight to the bag and clicking the small bin icon at the top of the page will remove the item from the users wishlist.
+
+### Blog
+![Blog Page](RM-media/blogpage-f.png)
+
+The blog page contains a list of all the blog posts. It features the blog image, title, creation and author. Clicking on the image will link the users to the bog detail page.
+If a superuser is login they will also have buttons like the products to edit and delete the blog posts.
+
+### Blog Detail
+![Blog Detail Page](RM-media/blogdetailpage-f.png)
+
+The blog detial page like the product detail page is split in two with the image taking one side and the blog information and content taking the other.
+Next to author and creation date is a like button where the user can like the post. At the bottom of the page under the image is a comment form which allows login users to comment on the post, users can also edit and delete their own comments. Under the blog content is a list of all comments on the post, with the name of the user.
 
 
 ## Deployment
