@@ -56,24 +56,127 @@
 <details>
 <summary>General Testing</summary>
 
+### Navigation
+- Tested that the website Logo links back to the home page **PASS**
+- Tested the all products drop down list links to the all product page with filters if selected **PASS**
+- Tested the coffee drop down list links to the coffee catagories with filters if selected **PASS**
+- Tested the gifts drop down list links to the gifts catagories with filters if selected **PASS**
+- Tested that when the sreach button is clicked it will drop down and allow user to search the site **PASS**
+- Tested that the account drop down has links to register and login in for users not logged in and links to 
+profile, wishlist and logout if a user is logged in and all links work **PASS**
+- Tested that the bag icon links the user to the bag page **PASS**
+
+#### Superuser
+- Tested that when the account button is clicked add product link is there and links to the add product page **PASS**
+- Tested that when the account button is clicked add blog link is there and links to the add blog page **PASS**
+
+### Footer
+-Tested that socail links all work and open in a different pages **PASS**
+
+</details>
+<details>
+<summary>Home</summary>
+
+- Tested the shop now button takes the user to the all products page **PASS**
+- Tested the facebook link in the about us section takes to user to the facebook page **PASS**
+- Tested the blog link takes the user to the blog page **PASS**
+
 </details>
 <details>
 <summary>Products</summary>
+
+### All Products
+- Tested that the link tree link back to each page **PASS**
+- Tested that the filter function works and filters product base on the selection **PASS**
+- Tested that when a product is clicked on it takes the user to the products detail page **PASS**
+
+### Product Detail
+- Tested that the link tree link back to each page **PASS**
+- Tested that product has a quantity selector and a quantity from 1-10 can be selected **PASS**
+- Tested that if a product has sizes the price is updated accordingly **PASS**
+- Tested that the add to bag button works and send all the information such as sizes and quantity **PASS**
+- Tested that login users can add a product to there wishlist **PASS**
+
+#### Superuser
+- Tested that each product has a edit link which takes the superuser to the edit product page **PASS**
+- Tested that each product has a delete link which creates a popup asking the user to confirm they what to delete the product **PASS**
+- Tested that when the popup is confirmed the product is deleted **PASS**
 
 </details>
 <details>
 <summary>Bag</summary>
 
+- Tested that the bag summery is displayed **PASS**
+- Tested that the remove from bag button works **PASS**
+- Tested that the update quantity selector and button works **PASS**
+- Tested that when any changes are made to the bag the price total is adjusted **PASS**
+- Tested that the checkout button takes the user to the checkout page **PASS**
+
 </details>
 <details>
 <summary>Checkout</summary>
+
+### Checkout page
+
+- Tested that the bag total and summary is shown **PASS**
+- Tested that all the required fields are correct to checkout **PASS**
+- Tested that the checkout button takes the user to the checkout success page if the form is correct **PASS**
+
+#### Signed in users
+
+- Tested that if they have information saved it will pre-populate the fields **PASS**
+- Tested that the save infor button will save the users information to the profile **PASS**
+
+### Checkout Success
+
+- Tested that the user receives an order summery **PASS**
+- Tested that the user can view more information like delivery address **PASS**
+- Tested that the products link takes the user back to the all products view **PASS**
 
 </details>
 <details>
 <summary>Profile</summary>
 
+### Profile
+
+- Tested the user can see a list of their orders **PASS**
+- Tested the user can see their saved information **PASS**
+- Tested that when a user clicks on an order it takes them to the order history page **PASS**
+- Tested that a user can update their saved information **PASS**
+
+### Order History
+
+- Tested that the user can see all the information on the order **PASS**
+- Tested that the user can add a review and be taken to the product review page **PASS**
+- Tested that the back to profile button links back to the profile **PASS**
+
+### Wishlist
+
+- Tested that any product added to the wishlist is shown **PASS**
+- Tested that the add to bag button adds the product to the bag **PASS**
+- Tested that the remove button removes the product from the wishlist **PASS** 
+
 </details>
 <summary>Blog</summary>
+
+### All Blogs
+
+- Tested that the link tree link back to each page **PASS**
+- Tested that when a blog is clicked on it takes the user to the blogs detail page **PASS**
+
+### Blog Detail
+
+- Tested that the blog information is all there **PASS**
+- Tested that a login user can like and unlike a post **PASS**
+- Tested that a login user can create a comment on a post **PASS**
+- Tested that a user can edit their own comments **PASS**
+- Tested that a user can delete their own comments **PASS**
+
+#### Superuser
+
+- Tested that each blog has a edit link which takes the superuser to the edit blog page **PASS**
+- Tested that each blog has a delete link which creates a popup asking the user to confirm they what to delete the blog **PASS**
+- Tested that when the popup is confirmed the blog is deleted **PASS**
 
 </details>
 
