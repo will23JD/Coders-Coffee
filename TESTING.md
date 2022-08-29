@@ -182,6 +182,11 @@ profile, wishlist and logout if a user is logged in and all links work **PASS**
 
 ## Automated Testing
 
+### Lighthouse
+
+![Lighthouse results](lighthouse.png)
+- Best Practices is low due the mailchimp script for the popup which I cannot change.
+
 ### Code Validator Testing
 - HTML validation was done by [W3C HTML](https://validator.w3.org/).
 - CSS validation was done by [W3C CSS](https://jigsaw.w3.org/css-validator/).
@@ -303,16 +308,6 @@ profile, wishlist and logout if a user is logged in and all links work **PASS**
 
 ![Blog Form python validation](RM-media/blogformpyval.png)
 
-
-
-
-
-
-
-
-
-
-
 </details>
 <details>
 <summary>javascript validation</summary>
@@ -358,3 +353,8 @@ profile, wishlist and logout if a user is logged in and all links work **PASS**
 ![Comment js validation](RM-media/commentjsval.png)
 
 </details>
+
+## User testing 
+My Friends and family were asked to review the site and documentation to point out any bugs and/or user experience issues. Their helpful advice throughout the process led to a few small UX changes in order to create a better experience.
+
+[Back to top ⇧](#)

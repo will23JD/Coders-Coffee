@@ -1,11 +1,20 @@
 # Coders Coffee
 
+## **Table of Contents**
+* [**UX**](#ux)
+    * [User Stories](#user-stories)
+* [**Agile**](#agile)
+* [**Website Structure**](#website-structure)
+    * [Wire Frames](#wire-frames)
+* [**Existing Features**](#existing-features)
+
+
 Coders Coffee is a website for coffee lovers to buy exciting new and different coffee's.
 This website is aimed at coders with a gifts section with different mugs and coasters that make for a greate 
 gift. The website also feature's a blog / news selection so user can see what the business is up to adding a personal touch to 
 the business. 
 
-## User Experience (UX)
+## UX
 ### Ideal user demographic:
 - Coffee lover
 - Coder
@@ -92,6 +101,11 @@ This project took use of this with [facebook](https://www.facebook.com/Coders-Co
 
 ## Website Structure
 
+### Database Schema
+SQLite was used in the development of the site and Postgres by Heroku platform is being used in production. The diagram below shows the database models and the relationships between them.
+
+![Database Schema](RM-media/databaseschema.png)
+
 ### Site Map
 I use site map to see where different templates and apps would need to connect to allow the user easily navigate through the site.
 
@@ -151,6 +165,20 @@ Bag page
 
 ![Bag page](RM-media/bagpagemt.png)
 </details>
+
+### Design
+
+#### Colours
+
+In this project I kept a simple clean look, So for the colours I used a mix of grey and black. However on call to action buttons such as add to bag or coloured in the 
+bootstrap success colour to make them stand out.
+
+#### Text 
+
+For this project I only user one font Montserrat to keep with the clean look. The font is versatile enough using uppercase to be sufficient for both headlines and other text.
+
+## Existing Features
+
 
 ## Deployment
 

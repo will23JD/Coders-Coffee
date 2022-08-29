@@ -6,7 +6,7 @@ class Blog(models.Model):
     """ Blog Model """
     title = models.CharField(max_length=100, unique=True)
     author = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="ribbit_discussion")
+        User, on_delete=models.CASCADE, related_name="blog_post")
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField()
     featured_image = models.ImageField(null=True, blank=True)
