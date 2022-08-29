@@ -7,7 +7,13 @@
 * [**Website Structure**](#website-structure)
     * [Wire Frames](#wire-frames)
 * [**Existing Features**](#existing-features)
+* [**Future Features**](#future-features)
+* [**Technologies Used**](#technologies-used)
 
+
+![Home Page](RM-media/homepage-f.png)
+
+![View The Live Site](https://coder-coffee.herokuapp.com/)
 
 Coders Coffee is a website for coffee lovers to buy exciting new and different coffee's.
 This website is aimed at coders with a gifts section with different mugs and coasters that make for a greate 
@@ -244,6 +250,51 @@ If a superuser is login they will also have buttons like the products to edit an
 The blog detial page like the product detail page is split in two with the image taking one side and the blog information and content taking the other.
 Next to author and creation date is a like button where the user can like the post. At the bottom of the page under the image is a comment form which allows login users to comment on the post, users can also edit and delete their own comments. Under the blog content is a list of all comments on the post, with the name of the user.
 
+## Future Features
+
+### Stock Management
+- Have each item contain a sock count with this number decreasing with successful purchases of that product. This would mean that a product coudn't be purchased if there was no stock availiable.
+
+### Auto Sreach Results
+- Must like on google having suggested search option based on what the user is typing would mean users will have an easer time finding a product they are looking for.
+
+
+## Technologies Used
+
+### Languages Used
+* [HTML5](https://en.wikipedia.org/wiki/HTML5)
+* [CSS3](https://en.wikipedia.org/wiki/CSS)
+* [Javascript](https://en.wikipedia.org/wiki/JavaScript)
+* [Python](https://www.python.org/)
+
+### Framework, Libraries and Programs used
+* [Django](https://www.djangoproject.com/)
+
+* [Allauth](https://django-allauth.readthedocs.io/en/latest/installation.html)
+
+* [Gunicorn](https://docs.djangoproject.com/en/4.0/howto/deployment/wsgi/gunicorn/)
+
+* [AWS](https://aws.amazon.com/free/?trk=d5254134-67ca-4a35-91cc-77868c97eedd&sc_channel=ps&s_kwcid=AL!4422!3!433803620858!e!!g!!aws&ef_id=CjwKCAjwx7GYBhB7EiwA0d8oey8lDT7FcqvPKFg8DEZo1A4bXYi_5LQlWUeovzRmR1A0hGp6AHZUsBoC_REQAvD_BwE:G:s&s_kwcid=AL!4422!3!433803620858!e!!g!!aws&all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=*all&awsf.Free%20Tier%20Categories=*all)
+
+* [PostgreSQL](https://www.postgresql.org/)
+
+* [Summernote](https://summernote.org/)
+
+* [Heroku](https://www.heroku.com/home)
+
+* [Gitpod](https://www.gitpod.io/)
+
+* [Git](https://git-scm.com/)
+
+* [GitHub](https://github.com/)
+
+* [Balsamiq](https://balsamiq.com/wireframes/)
+
+* [Lucidchart](https://www.lucidchart.com/)
+
+* [Google Fonts](https://fonts.google.com/)
+ 
+* [Font Awesome](https://fontawesome.com/)
 
 ## Deployment
 
