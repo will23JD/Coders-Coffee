@@ -24,11 +24,11 @@
                 <a href="{% url 'blog_detail' blog.id %}" class="text-black">
                     <div class="card">
                         {% if blog.featured_image %}
-                        <img class="open_img" aria-label="Blog featured image" src=" {{ blog.featured_image.url }}"
-                        width="100%">
+                        <img class="open_img" alt="Blog featured image" src=" {{ blog.featured_image.url }}"
+                            style="width: 100%;">
                         {% else %}
-                        <img class="open_img" aria-label="Blog standard image" src="{{ MEDIA_URL }}homeimage.jpg"
-                            width="100%">
+                        <img class="open_img" alt="Blog standard image" src="{{ MEDIA_URL }}homeimage.jpg"
+                            style="width: 100%;">
                         {% endif %}
                         {% if request.user.is_superuser %}
                         <small class="ml-4">

@@ -1,6 +1,18 @@
-### User Story Testing
+[Back to readme](/README.md)
 
-#### Site User
+***
+## Table of contents
+1. [User Story Testing](#user-story-testing)
+2. [Manual Testing](#manual-testing)
+3. [Automated Testing](#automated-testing) 
+     - [Code Validation](#code-validator-testing)
+4. [User Testing](#user-testing)
+
+***
+
+## User Story Testing
+
+### Site User
 - As a customer I can add or remove items from my basket so that I don't have items I don't want.
     - When in the bag app there is a remove button next to each item allowing the user to remove it from the bag.
 - As a customer I can choose from different sizes so that I have the best size to suit my needs.
@@ -18,7 +30,7 @@
 - As a site user I can receive notifications so that I know what's happen after I do something(eg: add an item to the bag).
     - The website includes full CRUD functionality notifying the user of any action they take.
 
-#### Registered User
+### Registered User
 - As a customer I can leave a rating on a product so that I can help other customers with their product choices.
     - After you have purchased a product and are login you can view your order and click on add a review on any product to add a review.
 - As a customer I can create an account so that my details can be saved so that I can have an easier time checking out next time.
@@ -27,7 +39,7 @@
 - As a customer I can receive a confirmation email so that I know my account registered.
     - When creating an account a confirmation email will be sent asking to verify the email.
 
-#### Site Owner
+### Site Owner
 - As a site owner I can update products so that they are up to date for customers.
     - When viewing any product or product detail a superuser will have the option to edit it.
 - As a site owner I can delete old product so that customers cannot buy them when they aren't available.
@@ -38,3 +50,53 @@
     - When viewing any blog or blog detail a superuser will have the option to edit it.
 - As a site owner I can delete a blog post so that **only relevant post will be there **
     - When viewing any blog or blog detail a superuser will have the option to delete it.
+
+
+## Manual Testing
+<details>
+<summary>General Testing</summary>
+
+</details>
+<details>
+<summary>Products</summary>
+
+</details>
+<details>
+<summary>Bag</summary>
+
+</details>
+<details>
+<summary>Checkout</summary>
+
+</details>
+<details>
+<summary>Profile</summary>
+
+</details>
+<summary>Blog</summary>
+
+</details>
+
+## Automated Testing
+
+### Code Validator Testing
+- HTML validation was done by [W3C HTML](https://validator.w3.org/).
+- CSS validation was done by [W3C CSS](https://jigsaw.w3.org/css-validator/).
+- python validation was done by [PEP8 online](http://pep8online.com/).
+- javascript validation was done by [jshint](https://jshint.com/).
+<details>
+<summary>HTML validation</summary>
+
+</details>
+<details>
+<summary>CSS validation</summary>
+
+</details>
+<details>
+<summary>python validation</summary>
+
+</details>
+<details>
+<summary>javascript validation</summary>
+
+</details>

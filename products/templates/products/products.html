@@ -103,7 +103,7 @@
 
 {% block postloadjs %}
     {{ block.super }}
-    <script type="text/javascript">
+    <script>
 		$('.btt-link').click(function(e) {
 			window.scrollTo(0,0)
 		})
@@ -131,7 +131,7 @@
     </script>
     {% for product in products %}
         {% if product.has_sizes %}
-            <script type="text/javascript">
+            <script>
                 var size = 500
                 var price = '{{ product.price }}';
                 var finalprice = price * size;

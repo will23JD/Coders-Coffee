@@ -25,11 +25,11 @@
     <div class="row">
         <div class="col-lg-6">
             {% if blog_detail.featured_image %}
-            <img class="open_img" aria-label="Blog featured image" src=" {{ blog_detail.featured_image.url }}"
-            width="100%">
+            <img class="open_img" alt="Blog featured image" src=" {{ blog_detail.featured_image.url }}"
+                style="width: 100%;">
             {% else %}
-            <img class="open_img" aria-label="Blog standard image" src="{{ MEDIA_URL }}homeimage.jpg"
-                width="100%">
+            <img class="open_img" alt="Blog standard image" src="{{ MEDIA_URL }}homeimage.jpg"
+                style="width: 100%;">
             {% endif %}
         </div>
         <div class="col-lg-6 bg-white curve">
@@ -45,10 +45,9 @@
                         {% endif %}
                     </form>
                 {% else %}
-                    <span class="tex-secondary"><i class="far fa-arrow-alt-circle-up"></i></span>
+                    <span class="tex-secondary"><i class="far fa-heart"></i></span>
                 {% endif %}
                     <span class="tex-secondary">{{ blog_detail.number_of_likes }}</span>
-                </form>
             </div>
             <div class="card">
                 <div class="card-body blog-mh">
