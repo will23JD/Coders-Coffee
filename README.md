@@ -8,7 +8,9 @@
     * [Wire Frames](#wire-frames)
 * [**Existing Features**](#existing-features)
 * [**Future Features**](#future-features)
+* [**Testing**](#testing)
 * [**Technologies Used**](#technologies-used)
+* [**Credits**](#credits)
 
 
 ![Home Page](RM-media/homepage-f.png)
@@ -258,6 +260,8 @@ Next to author and creation date is a like button where the user can like the po
 ### Auto Sreach Results
 - Must like on google having suggested search option based on what the user is typing would mean users will have an easer time finding a product they are looking for.
 
+## Testing
+[TESTING.md](/TESTING.md)
 
 ## Technologies Used
 
@@ -369,3 +373,22 @@ git clone https://github.com/USERNAME/REPOSITORY
 8. Press Enter. Your local clone will be created.
 
 Further reading and troubleshooting on cloning a repository [here](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository "Link to GitHub troubleshooting")
+
+## Credits
+
+### Code 
+- [CodeInstitue](https://codeinstitute.net/)
+    - Help from boutique ado walk through: Setting django app up, deploy to
+    heroku, basic stlyes and allauth.
+- [Stack overflow](https://stackoverflow.com/)
+    - Help with various bugs
+- [Stock Adobe](https://stock.adobe.com/) - Used a free trail and cancled it.
+    - source of all stock images.
+- [Pexels](https://www.pexels.com/photo/coffee-beans-closeup-photography-867466/)
+    - source for home image.
+
+
+### Acknowledgements
+
+- My Mentor for feedback throughout the project.
+- Friends and family for help with testing and feedback
