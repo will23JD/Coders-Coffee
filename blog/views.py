@@ -5,6 +5,7 @@ from django.contrib import messages
 from .models import Blog, Comment
 from .forms import BlogForm, CommentForm
 
+
 # Create your views here.
 def blog(request):
     """ Return blog page """
@@ -67,7 +68,8 @@ def comment(request, blog_id):
             messages.success(request, 'Successfully commented!')
             return redirect(reverse('blog_detail', args=[blog.id]))
         else:
-            messages.error(request, 'Comment Failed. Please ensure the form is valid.')
+            messages.error(request, (
+                'Comment Failed. Please ensure the form is valid.'))
             form = CommentForm()
 
     return redirect(redirect_url)
@@ -86,10 +88,11 @@ def edit_comment(request, comment_id):
             messages.success(request, 'Successfully updated Comment!')
             return redirect(success_url)
         else:
-            messages.error(request, 'Failed to update Comment. Please ensure the form is valid.')
+            messages.error(request, (
+                'Failed to update Comment. Please ensure the form is valid.'))
     else:
         form = CommentForm(instance=comment)
-        messages.info(request, f'You are editing')
+        messages.info(request, 'You are editing')
 
     template = 'blog/edit_comment.html'
     context = {
@@ -126,7 +129,8 @@ def add_blog(request):
             messages.success(request, 'Successfully added blog!')
             return redirect(reverse('blog_detail', args=[blog.id]))
         else:
-            messages.error(request, 'Failed to add blog. Please ensure the form is valid.')
+            messages.error(request, (
+                'Failed to add blog. Please ensure the form is valid.'))
     else:
         form = BlogForm()
 
@@ -154,7 +158,8 @@ def edit_blog(request, blog_id):
             messages.success(request, 'Successfully updated Blog!')
             return redirect(reverse('blog_detail', args=[blog.id]))
         else:
-            messages.error(request, 'Failed to update Blog. Please ensure the form is valid.')
+            messages.error(request, (
+                'Failed to update Blog. Please ensure the form is valid.'))
     else:
         form = BlogForm(instance=blog)
         messages.info(request, f'You are editing {blog.title}')

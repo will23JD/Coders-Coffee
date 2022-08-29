@@ -132,13 +132,13 @@
     {% for product in products %}
         {% if product.has_sizes %}
             <script>
-                var size = 500
+                var size = 500;
                 var price = '{{ product.price }}';
                 var finalprice = price * size;
                 var viewprice = $('#{{ product.sku }}');
-                viewprice.empty()
+                viewprice.empty();
                 viewprice.append(finalprice);
-                console.log(viewprice)
+                console.log(viewprice);
             </script>
         {% endif %}
     {% endfor %}

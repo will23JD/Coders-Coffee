@@ -38,8 +38,8 @@ def add_to_wishlist(request, item_id):
             messages.info(request, 'Product already in Wishlist')
         else:
             messages.success(request, 'Added to Wishlist')
-            Wishlist.objects.create(user=request.user, product=product, size=size)
-
+            Wishlist.objects.create(user=request.user, product=product,
+                                    size=size)
 
     return redirect(redirect_url)
 
@@ -54,7 +54,6 @@ def delete_from_wishlist(request, item_id):
     return redirect(reverse('wishlist'))
 
 
-
 @login_required
 def profile(request):
     """ Display the user's profile. """
@@ -65,9 +64,11 @@ def profile(request):
         form = UserProfileForm(request.POST, instance=profile)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Delivery information updated successfully')
+            messages.success(request, (
+                'Delivery information updated successfully'))
         else:
-            messages.error(request, 'Update failed. Please ensure the form is valid.')
+            messages.error(request, (
+                'Update failed. Please ensure the form is valid.'))
     else:
         form = UserProfileForm(instance=profile)
 
@@ -99,11 +100,6 @@ def order_history(request, order_number):
 
 def leave_review(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
-
-    # messages.info(request, (
-    #     f'This is a past confirmation for order number {order_number}. '
-    #     'A confirmation email was sent on the order date.'
-    # ))
 
     template = 'products/product_detail.html'
     context = {

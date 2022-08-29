@@ -238,12 +238,12 @@
     {{ block.super }}
     {% for item in order.lineitems.all %}
         {% if item.product.has_sizes %}
-        <script type="text/javascript">
-            var size = '{{ item.product_size }}'
+        <script>
+            var size = '{{ item.product_size }}';
             var price = '{{ item.product.price }}';
             var finalprice = price * size;
             var viewprice = $('#{{ item.product.sku }}{{ item.product_size }}');
-            viewprice.empty()
+            viewprice.empty();
             viewprice.append(finalprice);
         </script>
         {% endif %}

@@ -5,6 +5,7 @@ from products.models import Product
 
 
 def bag_contents(request):
+    """ Gets bag and returns it to the view """
 
     bag_items = []
     total = 0
@@ -41,9 +42,9 @@ def bag_contents(request):
     else:
         delivery = 0
         free_delivery_delta = 0
-    
+
     grand_total = delivery + total
-    
+
     context = {
         'bag_items': bag_items,
         'total': total,

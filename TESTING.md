@@ -87,16 +87,171 @@
 <details>
 <summary>HTML validation</summary>
 
+- Home page
+
+![Home page validation](RM-media/homehtmlval.png)
+
+- All Products page
+
+![All Products page validation](RM-media/productshtmlval.png)
+
+- Product Detail page
+
+![Product Detail page validation](RM-media/productdetailhtmlval.png)
+
+- Product Edit page 
+
+![Product Edit page validation](RM-media/productedithtmlval.png)
+
+- Product Add page
+
+![Product Add page validation](RM-media/productaddhtmlval.png)
+
+- Product Review page
+
+![Product Review page validation](RM-media/productreviewhtmlval.png)
+
+- Bag page
+
+![Bag page validation](RM-media/baghtmlval.png)
+
+- Checkout page
+
+![Checkout page validation](RM-media/checkouthtmlval.png)
+
+- Checkout Success page
+
+![Checkout page validation](RM-media/checkoutsuccesshtmlval.png)
+
+- Profile page
+
+![Profile page validation](RM-media/profilehtmlval.png)
+
+- Blog page
+
+![Blog page validation](RM-media/bloghtmlval.png)
+
+- Blog Detail page
+
+![Blog Detail page validation](RM-media/blogdetailhtmlval.png)
+
+- Blog Edit page 
+
+![Blog Edit page validation](RM-media/blogedithtmlval.png)
+
+- Blog Add page
+
+![Blog Add page validation](RM-media/blogaddhtmlval.png)
+
 </details>
 <details>
 <summary>CSS validation</summary>
 
+- Base CSS
+
+![Base CSS validation](RM-media/basecssval.png)
+
+- Checkout CSS
+
+![Checkout CSS validation](RM-media/checkoutcssval.png)
+
 </details>
 <details>
-<summary>python validation</summary>
+<summary>Python validation</summary>
+
+- Product Model Python
+
+![Product Model python validation](RM-media/productmodelpyval.png)
+
+- Product View Python
+
+![Product View python validation](RM-media/productviewpyval.png)
+
+- Bag View Python
+
+![Product View python validation](RM-media/bagviewspyval.png)
+
+
+- Bag Context Python
+
+![Bag Context python validation](RM-media/bagcontextpyval.png)
+
+- Checkout Model Python
+
+![Checkout Model python validation](RM-media/checkoutmodelpyval.png)
+
+- Checkout View Python
+
+![Checkout Viewpython validation](RM-media/checkoutviewpyval.png)
+
+- Profile Model Python
+
+![Profile Model python validation](RM-media/profilemodelpyval.png)
+
+- Profile View Python
+
+![Profile View python validation](RM-media/profileviewpyval.png)
+
+- Blog Model Python
+
+![Blog Model python validation](RM-media/blogmodelpyval.png)
+
+- Blog Form Python
+
+![Blog Form python validation](RM-media/blogformpyval.png)
+
+
+
+
+
+
+
+
+
+
 
 </details>
 <details>
 <summary>javascript validation</summary>
+
+- Base js 
+
+![Base js validation](RM-media/basejsval.png)
+
+- Profile js
+
+![Profile js validation](RM-media/profilejsval.png)
+
+- Finalprice js
+
+![Finalprice js validation](RM-media/finalpricejsval.png)
+
+- Showprice js
+
+![Showprice js validation](RM-media/showpricejsval.png)
+
+- Get Rating js
+
+![Get Rating js validation](RM-media/getratingjsval.png)
+
+- Stripe js
+
+![Stripe js validation](RM-media/stripejsval.png)
+
+- Checkout js
+
+![Checkout js validation](RM-media/checkoutpricejsval.png)
+
+- Bag js
+
+![Bag js validation](RM-media/bagjsval.png)
+
+- Add Blog js
+
+![Add Blof js validation](RM-media/addblogjsval.png)
+
+- Comment js
+
+![Comment js validation](RM-media/commentjsval.png)
 
 </details>

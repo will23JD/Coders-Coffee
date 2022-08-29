@@ -3,8 +3,9 @@ from .models import Blog, Comment
 
 
 class BlogForm(forms.ModelForm):
-
+    """ Blog form """
     class Meta:
+        """ Make auther sent to user """
         model = Blog
         fields = (
             'title', 'author', 'featured_image', 'content')
@@ -19,8 +20,9 @@ class BlogForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
 
 
-
 class CommentForm(forms.ModelForm):
+    """  Comment form """
     class Meta:
+        """ Sents comment fields """
         model = Comment
         fields = ('body',)

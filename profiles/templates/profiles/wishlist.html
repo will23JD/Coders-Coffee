@@ -92,13 +92,13 @@
     {% for item in wishitems %}
         {% if item.product.has_sizes %}
             <script type="text/javascript">
-                var size = '{{ item.size }}'
+                var size = '{{ item.size }}';
                 var price = '{{ item.product.price }}';
                 var finalprice = price * size;
                 var viewprice = $('#{{ item.product.sku }}');
-                viewprice.empty()
+                viewprice.empty();
                 viewprice.append(finalprice);
-                console.log(viewprice)
+                console.log(viewprice);
             </script>
         {% endif %}
     {% endfor %}

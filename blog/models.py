@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 
 
 class Blog(models.Model):
+    """ Blog Model """
     title = models.CharField(max_length=100, unique=True)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="ribbit_discussion")
@@ -12,7 +13,6 @@ class Blog(models.Model):
     created_on = models.DateTimeField(auto_now=True)
     likes = models.ManyToManyField(
         User, related_name='like_blog', blank=True)
-
 
     class Meta:
         ordering = ["-created_on"]
@@ -25,6 +25,7 @@ class Blog(models.Model):
 
 
 class Comment(models.Model):
+    """ Comment Model """
     blog = models.ForeignKey(Blog, on_delete=models.CASCADE,
                              related_name="comments")
     name = models.CharField(User, max_length=80)

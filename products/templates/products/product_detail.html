@@ -140,11 +140,11 @@
     {% if product.has_sizes %}
         <script>
             $(document).ready(function(){
-                var size = $('#id_product_size').val()
+                var size = $('#id_product_size').val();
                 var price = '{{ product.price }}';
                 var finalprice = price * size;
                 var viewprice = $('#product-price');
-                viewprice.empty()
+                viewprice.empty();
                 viewprice.append(finalprice);
             });
 
@@ -167,9 +167,9 @@
                 var radioValue = $("input[name='rate']:checked").val();
                 var rating = $("#rating");
                 if(radioValue){
-                    rating.val(radioValue)
+                    rating.val(radioValue);
                 }else{
-                    rating.val(0)
+                    rating.val(0);
                 }
             });
         });
