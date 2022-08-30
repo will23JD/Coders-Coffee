@@ -42,7 +42,9 @@
                         </small>
                     {% endif %}
                 </h5>
+                {% if not from_profile %}
                 <p class="lead mb-0 text-left font-weight-bold">$<span id="product-price">{{ product.price }}</span></p>
+                {% endif %}
                 {% if product.category %}
                     <p class="small mt-1 mb-0">
                         <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
@@ -55,6 +57,34 @@
                 {% else %}
                     <small class="text-muted">No Rating</small>
                 {% endif %}
+                {% if from_profile %}
+                <div>
+                    <form action="{% url 'add_review' product.id %}" method="POST">
+                        {% csrf_token %}
+                        <div id="radioDiv" class="rate">
+                        <input type="radio" id="star5" name="rate" value="5" />
+                        <label for="star5" title="text">5 stars</label>
+                            <input type="radio" id="star4" name="rate" value="4" />
+                            <label for="star4" title="text">4 stars</label>
+                            <input type="radio" id="star3" name="rate" value="3" />
+                            <label for="star3" title="text">3 stars</label>
+                            <input type="radio" id="star2" name="rate" value="2" />
+                            <label for="star2" title="text">2 stars</label>
+                            <input type="radio" id="star1" name="rate" value="1" />
+                            <label for="star1" title="text">1 star</label>
+                        </div>
+                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        <input type="hidden" id="rating" name="rating" value="1">
+                        <input id="s-rating" type="submit" class="btn btn mt-1" value="Submit">
+                    </form>
+                </div>
+                <a href="{% url 'profile' %}" class="btn btn-black curve my-2">
+                    <span class="icon mr-2">
+                        <i class="fas fa-angle-left"></i>
+                    </span>
+                    <span class="text-uppercase">Back to profile</span>
+                </a>
+                {% else %}
                 <div class="row">
                     <form class="form col-10" action="{% url 'add_to_bag' product.id %}" method="POST">
                         {% csrf_token %}
@@ -104,32 +134,11 @@
                         </form>
                     </div>
                 </div>
-                {% if from_profile %}
-                <div>
-                    <form action="{% url 'add_review' product.id %}" method="POST">
-                        {% csrf_token %}
-                        <div id="radioDiv" class="rate">
-                        <input type="radio" id="star5" name="rate" value="5" />
-                        <label for="star5" title="text">5 stars</label>
-                            <input type="radio" id="star4" name="rate" value="4" />
-                            <label for="star4" title="text">4 stars</label>
-                            <input type="radio" id="star3" name="rate" value="3" />
-                            <label for="star3" title="text">3 stars</label>
-                            <input type="radio" id="star2" name="rate" value="2" />
-                            <label for="star2" title="text">2 stars</label>
-                            <input type="radio" id="star1" name="rate" value="1" />
-                            <label for="star1" title="text">1 star</label>
-                        </div>
-                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                        <input type="hidden" id="rating" name="rating" value="1">
-                        <input id="s-rating" type="submit" class="btn btn mt-1" value="Submit">
-                    </form>
-                </div>
-                {% endif %}
                 <div class="card mt-3">
                     <p class="my-2 pl-2">{{ product.description }}</p>
                 </div>
             </div>
+            {% endif %}
         </div>
     </div>
 </div>
