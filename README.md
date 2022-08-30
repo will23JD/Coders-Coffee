@@ -9,6 +9,7 @@
 * [**Existing Features**](#existing-features)
 * [**Future Features**](#future-features)
 * [**Testing**](#testing)
+* [**Bug Fixes**](#bug-fixes)
 * [**Technologies Used**](#technologies-used)
 * [**Credits**](#credits)
 
@@ -263,6 +264,9 @@ Next to author and creation date is a like button where the user can like the po
 ## Testing
 [TESTING.md](/TESTING.md)
 
+## Bug fixes
+- In this project didn't have many bugs, unitl it came to deploy to heroku where the database wouldn't pickup the checkout model. To solve this I had to clear all the migrations, both sqlite3 and PostgreSQL databases, Then run python3 makemigrations again then migrate all the models to be git and heroku in order to fix this issue.
+
 ## Technologies Used
 
 ### Languages Used
@@ -380,6 +384,8 @@ Further reading and troubleshooting on cloning a repository [here](https://docs.
 - [CodeInstitue](https://codeinstitute.net/)
     - Help from boutique ado walk through: Setting django app up, deploy to
     heroku, basic stlyes and allauth.
+-[codepen](https://codepen.io/hesguru/pen/BaybqXv)
+    - Code html and css for the star rating.
 - [Stack overflow](https://stackoverflow.com/)
     - Help with various bugs
 - [Stock Adobe](https://stock.adobe.com/) - Used a free trail and cancled it.
